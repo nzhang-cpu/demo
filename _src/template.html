@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ningdan's Demos</title>
+<meta name="description" content="Live prototypes of AI-powered self-service experiences, all in one place.">
+<meta property="og:title" content="Ningdan's Demos">
+<meta property="og:description" content="Live prototypes of AI-powered self-service experiences, all in one place.">
+<meta property="og:image" content="thumbnail.png">
+<style>
+:root{--bg:#07091a;--panel:#10142b;--line:rgba(255,255,255,.09);--txt:#eef1ff;--mute:#8d96bd}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;overflow-x:hidden}
+body:before,body:after{content:"";position:fixed;z-index:0;width:620px;height:620px;border-radius:50%;filter:blur(120px);opacity:.35;pointer-events:none}
+body:before{background:#6d4aff;top:-200px;left:-120px}
+body:after{background:#00c2ff;bottom:-260px;right:-160px;opacity:.25}
+.grid-bg{position:fixed;inset:0;z-index:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 50% 0,#000 20%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 50% 0,#000 20%,transparent 70%);opacity:.5}
+.wrap{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:0 24px}
+header{padding:88px 0 40px;text-align:center}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid var(--line);border-radius:99px;background:rgba(255,255,255,.04);font-size:.8rem;color:var(--mute)}
+.dot{width:8px;height:8px;border-radius:50%;background:#34e0a1;box-shadow:0 0 0 0 rgba(52,224,161,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(52,224,161,0)}100%{box-shadow:0 0 0 0 rgba(52,224,161,0)}}
+h1{margin:22px 0 14px;font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.05;letter-spacing:-.03em}
+h1 em{font-style:normal;background:linear-gradient(90deg,#a78bfa,#38bdf8,#34e0a1);-webkit-background-clip:text;background-clip:text;color:transparent}
+header p{margin:0 auto;max-width:560px;color:var(--mute);font-size:1.1rem;line-height:1.5}
+.ask{margin:34px auto 0;max-width:560px;display:flex;align-items:center;gap:10px;padding:6px 6px 6px 18px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.05);backdrop-filter:blur(10px);box-shadow:0 0 40px rgba(109,74,255,.18)}
+.ask span{font-size:1rem;color:var(--mute)}
+.ask input{flex:1;background:none;border:0;outline:0;color:var(--txt);font:inherit;padding:12px 0}
+.ask kbd{padding:6px 10px;border-radius:10px;background:linear-gradient(135deg,#6d4aff,#38bdf8);font-size:.8rem;font-weight:600}
+main{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:24px;padding:48px 0 80px}
+.card{position:relative;display:block;text-decoration:none;color:inherit;border-radius:20px;background:var(--panel);border:1px solid var(--line);overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
+.card:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--c) 70%,transparent);box-shadow:0 20px 50px -10px color-mix(in srgb,var(--c) 45%,transparent)}
+.shot{position:relative;height:200px;padding:18px 18px 0;background:radial-gradient(circle at 50% 0,color-mix(in srgb,var(--c) 40%,transparent),transparent 75%)}
+.frame{height:100%;border-radius:10px 10px 0 0;overflow:hidden;border:1px solid var(--line);border-bottom:0;background:#fff;transition:transform .35s}
+.card:hover .frame{transform:translateY(-6px) scale(1.02)}
+.bar{height:20px;background:#1b2040;display:flex;align-items:center;gap:5px;padding:0 9px}
+.bar i{width:6px;height:6px;border-radius:50%;background:#ff5f57}.bar i:nth-child(2){background:#febc2e}.bar i:nth-child(3){background:#28c840}
+.frame img{display:block;width:100%;height:calc(100% - 20px);object-fit:cover;object-position:top}
+.ph{height:calc(100% - 20px);background:linear-gradient(160deg,#0b1d4d,#1d4ed8);padding:14px;display:flex;flex-direction:column;gap:8px}
+.ph b{display:block;height:9px;border-radius:5px;background:rgba(255,255,255,.25)}
+.ph .m{align-self:flex-start;background:rgba(255,255,255,.14);color:#fff;font-size:.62rem;padding:7px 10px;border-radius:10px 10px 10px 2px}
+.ph .u{align-self:flex-end;background:#38bdf8;color:#04122e;font-size:.62rem;padding:7px 10px;border-radius:10px 10px 2px 10px}
+.info{padding:20px 22px 22px}
+.tag{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
+.info h2{margin:6px 0 6px;font-size:1.2rem;letter-spacing:-.01em}
+.info p{margin:0 0 16px;color:var(--mute);font-size:.9rem;line-height:1.45}
+.go{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--mute)}
+.go b{color:var(--txt);font-weight:600;transition:transform .2s}
+.card:hover .go b{transform:translateX(4px)}
+.live{display:flex;align-items:center;gap:6px}.live .dot{width:6px;height:6px}
+footer{position:relative;z-index:1;text-align:center;padding:0 0 48px;color:var(--mute);font-size:.8rem}
+.hide{display:none}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="wrap">
+<header>
+  <div class="pill"><span class="dot"></span>{{COUNT}} live demos · always on</div>
+  <h1>Ningdan's <em>AI&nbsp;Demo&nbsp;Lab</em></h1>
+  <p>Prototypes of intelligent self-service and agent-powered help experiences. Pick one and step inside.</p>
+  <label class="ask"><span>✦</span><input id="q" placeholder="Ask for a demo… try “airline” or “help center”" autocomplete="off"><kbd>Find</kbd></label>
+</header>
+<main id="grid">
+{{CARDS}}
+</main>
+</div>
+<footer>Built with Claude · nzhang-cpu · updated daily</footer>
+<script>
+const q=document.getElementById('q'),cards=[...document.querySelectorAll('.card')];
+q.addEventListener('input',()=>{const v=q.value.toLowerCase().trim();cards.forEach(c=>c.classList.toggle('hide',v&&!(c.dataset.k+c.textContent).toLowerCase().includes(v)))});
+</script>
+</body>
+</html>

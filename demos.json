@@ -1,0 +1,7 @@
+{
+  "1102-fin-demo": {"title": "United Airline + Fin", "tag": "Airline · AI agent", "desc": "Conversational self-service where an AI agent resolves travel requests end to end.", "color": "#38bdf8"},
+  "ai-zone-demo": {"title": "Northline Help", "tag": "Help center · AI zone", "desc": "An AI-first help experience that answers questions before a ticket is ever needed.", "color": "#a78bfa"},
+  "design-system-demo": {"title": "Self-service portal", "tag": "Design system", "desc": "The building blocks — components, tokens and patterns — behind the portal demos.", "color": "#34e0a1"},
+  "ai-zone": {"title": "Northline Help Center", "tag": "Help center", "desc": "The full help center experience with search, articles and AI assistance together.", "color": "#fb923c"},
+  "self-service-264-demo-ningdan": {"title": "Pearson Demo 0422", "tag": "Education · Self-service", "desc": "A self-service journey tailored for learners, with AI support built into the flow.", "color": "#f472b6"}
+}
